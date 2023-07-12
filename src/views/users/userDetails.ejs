@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="text-center">Détails de l'utilisateur</h2>
+    <p>Nom <%= user.username %></p>
+    <p>MDP <%= user.password %></p>
+    <p>Role <%= user.role %></p>
+
+    <a href="/users/<%= user._id %>/update">Modifier</a>
+    <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+        <button type="submit">Supprimer</button>
+    </form>
+</body>
+</html>

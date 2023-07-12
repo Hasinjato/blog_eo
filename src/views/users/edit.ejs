@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Modifier utilisateur</h2>
+    <form method="POST" action="/users/<%= user._id %>">
+    
+        <div class="">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" required>
+        </div>
+        <div class="">
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" value="<%= user.password %>" required>
+        </div>
+        <div class="">
+            <input type="hidden" name="role" value="<%= user.role %>" >
+        </div>
+        <input type="submit">Enregistrer</input><br><br>
+    </form>
+<script>
+    // function updateUser(userId) {
+    //     if(confirm("Voulez-vous modifier cet utilisateur ?")) {
+    //         fetch(`/users/${userId}`, { method: 'PUT',
+    //         })
+    //         .then(() => {
+    //         window.location.reload();
+    //         })
+    //         .catch((error) => {
+    //             console.log(error)
+    //         });
+    //     }
+    // }
+</script>
+</body>
+</html>

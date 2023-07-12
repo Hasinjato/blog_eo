@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template/Adminty/dashboard_cumstomize-master/files/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" href="template/Adminty/dashboard_cumstomize-master/files/assets/css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.min.css">
+    <title>login</title>
+</head>
+<body class="text-center">
+    <div class="login col-lg-3 col-md-4 col-sm-5 col-6">
+        <h1>Login</h1>
+        <% if(errorMessage) { %>
+        <div class="alert alert-danger icons-alert p-2">
+            <p><h6>
+                <code>
+                    <%= errorMessage %>
+                </code>
+                </h6>
+            </p>
+        </div>
+        <% } %>
+
+        <form action="/login" method="post">
+            <div class="form-floating input-group">
+                <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off">
+                <label for="floatingInput">Username</label>
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>            
+            </div>
+            <div class="form-floating input-group">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
+                <label for="floatingInput">Password</label>
+                <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                </div>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
