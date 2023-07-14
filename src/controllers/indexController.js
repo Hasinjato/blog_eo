@@ -13,17 +13,31 @@ exports.getIndex = (req, res) => {
     // req.session.user = user;
     // res.render('index', { connected });
 
+    const page = parseInt(req.query.page) || 1;
+    const limit = 7;
+    const skip = (page - 1) * limit;
+    totalArticle = 0;
+    Article.find()
+    .then(articles => {
+        articles.forEach((article, index) => {
+            totalArticle ++;
+        });
+    });
     Article.find()
         // .populate('author','_id')
+        .limit(limit)
+        .skip(skip)
         .sort({ createdAt: -1 })
         .then(articles => {
-            articles.forEach((article) => {
+            articles.forEach((article, index) => {
                 article.content = article.content.slice(0, 150);
                 article.formattedCreatedAt = article.createdAt.toLocaleString('fr-FR');
             });
+        // const totalArticle = Article.countDocuments();
+        const totalPages = Math.ceil(totalArticle / limit);
 
 
-            res.render('index',{ articles, connected });
+            res.render('index',{ articles, connected, totalArticle, currentPage: page, totalPages });
         })
         .catch(err => {
             res.status(500).send({
@@ -33,4 +47,14 @@ exports.getIndex = (req, res) => {
 };
 
 exports.getArticleList = (req, res) => {
+};
+
+exports.deletePost = (req, res) => {
+    Article.findByIdAndRemove(req.params.id)
+        .then((article) => {
+            res.redirect('/');
+        })
+        .catch((error) => {
+            return res.status(500);
+        });
 };

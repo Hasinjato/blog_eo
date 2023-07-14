@@ -43,7 +43,7 @@ exports.createUser = (req, res) => {
                     };
                     User.collection.insertOne(user);
 
-                    res.redirect('/');
+                    res.redirect('/users');
                 }
             })
 

@@ -64,8 +64,8 @@ router.delete('/articles/:id', requireAuth, articleController.deleteArticle);
 
 
 
+router.delete('/:id', indexController.deletePost);
 router.get('/', indexController.getIndex);
 router.get('/', indexController.getArticleList);
-
 
 module.exports = router;

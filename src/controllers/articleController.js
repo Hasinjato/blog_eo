@@ -67,7 +67,7 @@ exports.updateArticle = async(req, res) => {
 };
     
 exports.deleteArticle = (req, res) => {
-    User.findByIdAndRemove(req.params.id)
+    Article.findByIdAndRemove(req.params.id)
         .then((user) => {
             res.redirect('/articles');
         })
