@@ -20,10 +20,15 @@ exports.createArticleForm = (req, res) => {
 exports.createArticle = (req, res) => {
     const title = req.body.title;
     const content = req.body.content;
+    if(req.file) {
+        const img = req.file.filename;
+    }
+    const img = null;
     const _nom = req.session.user.username;
     const article = {
         title: title,
         content: content,
+        image: img,
         author: _nom,
         createdAt: Date.now(),
     }
@@ -35,6 +40,7 @@ exports.getArticleDetails = (req, res, err) => {
     if (req.session.isAuthenticated) {
         connected = true
         res.locals._nom = req.session.user.username;
+        res.locals._image = req.session.user.image;
         res.locals._role = req.session.user.role;
     } else {
         connected = false;

@@ -101,6 +101,7 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Nom d'utilisateur</th>
+                                                            <th>Image</th>
                                                             <th>Rôle</th>
                                                             <th>Actions</th>
                                                         </tr>
@@ -110,6 +111,7 @@
                                                         <tr>
                                                             <th scope="row"><%= index + 1 %></th>
                                                             <td><%= user.username %></td>
+                                                            <td><img class="w-100" src="/uploads/<%= user.image %>" alt=""></td>
                                                             <td><%= user.role %></td>
                                                             <td>
                                                                 <a href="/users/<%= user._id %>">Afficher</a>

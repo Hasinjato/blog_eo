@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../fontawesome-free-6.4.0-web/css/all.min.css">
-    <title>signup</title>
+    <title>Créer une compte</title>
 </head>
 <body class="text-center">
     <div class="login col-lg-3 col-md-4 col-sm-5 col-6">
@@ -24,10 +24,17 @@
                 </p>
             </div>
             <% } %>
-        <form action="/users/create" method="post">
+        <form action="/users/create" method="POST" enctype="multipart/form-data">
             <div class="form-floating input-group">
                 <input name="username" type="text" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off">
                 <label for="floatingInput">Username</label>
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>            
+            </div>
+            <div class="form-floating input-group">
+                <input name="image" type="file" class="form-control" id="floatingInput" placeholder="image" autocomplete="off">
+                <label for="floatingInput">Image</label>
                 <div class="input-group-text">
                     <span class="fas fa-user"></span>
                 </div>            

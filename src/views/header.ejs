@@ -9,20 +9,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
         <% if(connected) { %>
             <%= _nom %>
+            <img class="m-2" src="/uploads/<%= _image %>" style="
+                                                        border-radius: 45% 70%;
+                                                        width: 2% !;">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Post</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/logout">Se déconnecter</a></li>
             </ul>
         <% } %>
         <% if(!connected) { %>
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Post</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Post</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/login">Se connecter</a></li>
             </ul>
         <% } %>
@@ -36,7 +39,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     <h1>BlogEo</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <span class="subheading">Votre relation commence ici!</span>
                 <% if(connected) { %>
                     <h3 class="btn btn-lg btn-outline-info mt-3 p-2 waves-effect md-trigger" data-modal="modal-13">+ Publier</h3>
                     <%-include('articles/new.ejs') %>

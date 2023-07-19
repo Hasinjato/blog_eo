@@ -20,9 +20,12 @@ exports.createUserForm = (req, res) => {
 };
 
 exports.createUser = (req, res) => {
+
     const username = req.body.username;
+    const image = req.file.filename;
     const pass = req.body.password;
     const rpass = req.body.repeated_password;
+    const role = 'USER';
 
     User.findOne({ username: username })
             .then((user) => {
@@ -36,10 +39,12 @@ exports.createUser = (req, res) => {
                         errorMessage:'Les deux mot de passe doit être identique'
                     });
                 } else {
+
                     const user = {
                         username: username,
+                        image: image,
                         password: bcrypt.hashSync(pass, 10),
-                        role: 'USER'
+                        role: role
                     };
                     User.collection.insertOne(user);
 

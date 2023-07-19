@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const session = require('express-session');
 
+const multer = require('multer');
+
+// COnfiguration de multer
+const upload = multer({ dest: 'public/uploads/' });
+
+
 const indexController = require('../src/controllers/indexController');
 
 const authController = require('../src/controllers/authController');
@@ -37,7 +43,8 @@ router.get('/dashboard', requireAuth, dashController.getDashboard);
 router.get('/users', requireAuth, userController.getUserList);
 
 router.get('/users/create', userController.createUserForm);
-router.post('/users/create', userController.createUser);
+router.post('/users/create', upload.single('image'), userController.createUser);
+
 
 router.get('/users/:id', requireAuth, userController.getUserDetails);
 
@@ -51,7 +58,7 @@ router.get('/articles', articleController.getArticleList);
 
 
 router.get('/articles/create', articleController.createArticleForm);
-router.post('/articles/create', articleController.createArticle);
+router.post('/articles/create', upload.single('image'), articleController.createArticle);
 
 router.get('/articles/:id', articleController.getArticleDetails);
 
@@ -62,7 +69,8 @@ router.delete('/articles/:id', requireAuth, articleController.deleteArticle);
 
 
 
-
+router.get('/about', indexController.getAbout);
+router.get('/contact', indexController.getContact);
 
 router.delete('/:id', indexController.deletePost);
 router.get('/', indexController.getIndex);

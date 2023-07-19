@@ -1,10 +1,19 @@
 const Article = require('../models/article');
 const User = require('../models/user');
 
+exports.getAbout = (req, res) => {
+    res.render('about')
+}
+
+exports.getContact = (req, res) => {
+    res.render('contact')
+}
+
 exports.getIndex = (req, res) => {
     if (req.session.isAuthenticated) {
         connected = true
         res.locals._nom = req.session.user.username;
+        res.locals._image = req.session.user.image;
         res.locals._role = req.session.user.role;
     } else {
         connected = false;
@@ -35,8 +44,6 @@ exports.getIndex = (req, res) => {
             });
         // const totalArticle = Article.countDocuments();
         const totalPages = Math.ceil(totalArticle / limit);
-
-
             res.render('index',{ articles, connected, totalArticle, currentPage: page, totalPages });
         })
         .catch(err => {
