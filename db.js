@@ -93,7 +93,7 @@ const Article = require('./src/models/article');
 
 function createAllForDb() {
     // Db Connection
-    mongoose.connect(mongodb+srv://hasinjato:726681@blogdb.etj5goh.mongodb.net/, {
+    mongoose.connect('mongodb+srv://hasinjato:726681@blogdb.etj5goh.mongodb.net/', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
