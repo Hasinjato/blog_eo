@@ -20,10 +20,10 @@ exports.createArticleForm = (req, res) => {
 exports.createArticle = (req, res) => {
     const title = req.body.title;
     const content = req.body.content;
-    if(req.file) {
+    // if(req.file) {
         const img = req.file.filename;
-    }
-    const img = null;
+    // }
+    // const img = null;
     const _nom = req.session.user.username;
     const article = {
         title: title,

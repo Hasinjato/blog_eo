@@ -15,7 +15,7 @@
         <link href="template/startbootstrap-clean-blog-gh-pages/css/styles.css" rel="stylesheet" />
         <!-- animation nifty modal window effects css -->
         <link rel="stylesheet" type="text/css" href="/template/Adminty/dashboard_cumstomize-master/files/assets/css/component.css">
-
+        <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <style>
             .masthead {
                 height: 500px;
@@ -101,12 +101,10 @@
                                 <div class="dropdown">
                                     <i class="fa fa-ellipsis-v dropdown-toggle" role=button id="dropdownRightMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRightMenuButton">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
                                     <% if((connected) && (_nom == article.author)){ %>
                                         <li><a class="dropdown-item" href="#" onClick="deletePost('<%= article._id %>')">Supprimer ma publication</a></li>
                                     <% } %>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
                                     </ul>
                                 </div>
                             </div>
